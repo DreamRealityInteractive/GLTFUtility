@@ -7,7 +7,11 @@ using UnityEngine.Serialization;
 namespace Siccity.GLTFUtility {
 	[Serializable]
 	public class ImportSettings {
-		public ImportSettings(Shader defaultShader)
+        public ImportSettings()
+        {
+            shaderOverrides = new ShaderSettings();
+        }
+        public ImportSettings(Shader defaultShader)
         {
             shaderOverrides = new ShaderSettings(defaultShader);
         }

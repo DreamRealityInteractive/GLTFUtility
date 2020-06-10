@@ -6,7 +6,8 @@ namespace Siccity.GLTFUtility {
 	[Serializable]
 	public class ShaderSettings {
 
-		public ShaderSettings(Shader defaultShader)
+        public ShaderSettings() { }
+        public ShaderSettings(Shader defaultShader)
         {
             metallic = defaultShader;
             metallicBlend = defaultShader;
