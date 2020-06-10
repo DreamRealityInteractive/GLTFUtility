@@ -6,16 +6,16 @@ namespace Siccity.GLTFUtility {
 	[Serializable]
 	public class ShaderSettings {
 		[SerializeField] private Shader metallic;
-		public Shader Metallic { get { return metallic != null ? metallic : Shader.Find("GLTFUtility/Standard (Metallic)"); } }
+		public Shader Metallic { get { return metallic != null ? metallic : (Shader.Find("GLTFUtility/Standard (Metallic)")??Shader.Find("Standard")); } }
 
 		[SerializeField] private Shader metallicBlend;
-		public Shader MetallicBlend { get { return metallicBlend != null ? metallicBlend : Shader.Find("GLTFUtility/Standard Transparent (Metallic)"); } }
+		public Shader MetallicBlend { get { return metallicBlend != null ? metallicBlend : (Shader.Find("GLTFUtility/Standard Transparent (Metallic)") ?? Shader.Find("Standard")); } }
 
 		[SerializeField] private Shader specular;
-		public Shader Specular { get { return specular != null ? specular : Shader.Find("GLTFUtility/Standard (Specular)"); } }
+		public Shader Specular { get { return specular != null ? specular : (Shader.Find("GLTFUtility/Standard (Specular)") ?? Shader.Find("Standard")); } }
 
 		[SerializeField] private Shader specularBlend;
-		public Shader SpecularBlend { get { return specularBlend != null ? specularBlend : Shader.Find("GLTFUtility/Standard Transparent (Specular)"); } }
+		public Shader SpecularBlend { get { return specularBlend != null ? specularBlend : (Shader.Find("GLTFUtility/Standard Transparent (Specular)") ?? Shader.Find("Standard")); } }
 
 		/// <summary> Caches default shaders so that async import won't try to search for them while on a separate thread </summary>
 		public void CacheDefaultShaders() {
