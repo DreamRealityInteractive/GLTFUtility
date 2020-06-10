@@ -15,6 +15,13 @@ namespace Siccity.GLTFUtility {
             specularBlend = defaultShader;
         }
 
+        public ShaderSettings(Material _overrideMaterial)
+        {
+            overrideMaterial = _overrideMaterial;
+        }
+
+        public Material overrideMaterial;
+
 		[SerializeField] private Shader metallic;
 		public Shader Metallic { get { return metallic != null ? metallic : (Shader.Find("GLTFUtility/Standard (Metallic)")??Shader.Find("Standard")); } }
 
