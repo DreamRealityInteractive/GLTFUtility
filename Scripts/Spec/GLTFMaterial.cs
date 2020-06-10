@@ -47,7 +47,7 @@ namespace Siccity.GLTFUtility {
 				while (en.MoveNext()) { yield return null; };
 			}
 			// Load fallback material
-			else mat = new Material(Shader.Find("Standard"));
+			else mat = shaderSettings.overrideMaterial;
 			// Normal texture
 			if (normalTexture != null) {
 				en = TryGetTexture(textures, normalTexture, true, tex => {
@@ -143,7 +143,7 @@ namespace Siccity.GLTFUtility {
 				}
 
 				// Material
-				Material mat = new Material(sh);
+				Material mat = shaderSettings.overrideMaterial == null ? new Material(sh) : new Material(shaderSettings.overrideMaterial);
 				mat.color = baseColorFactor;
 				mat.SetFloat("_Metallic", metallicFactor);
 				mat.SetFloat("_Roughness", roughnessFactor);
@@ -216,9 +216,10 @@ namespace Siccity.GLTFUtility {
 					else sh = shaderSettings.Specular;
 				}
 
-				// Material
-				Material mat = new Material(sh);
-				mat.color = diffuseFactor;
+                // Material
+                Material mat = shaderSettings.overrideMaterial == null ? new Material(sh) : new Material(shaderSettings.overrideMaterial);
+
+                mat.color = diffuseFactor;
 				mat.SetColor("_SpecColor", specularFactor);
 				mat.SetFloat("_GlossyReflections", glossinessFactor);
 

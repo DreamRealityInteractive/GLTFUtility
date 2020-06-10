@@ -11,6 +11,7 @@ namespace Siccity.GLTFUtility {
         {
             shaderOverrides = new ShaderSettings();
         }
+
         public ImportSettings(Shader defaultShader)
         {
             shaderOverrides = new ShaderSettings(defaultShader);
@@ -18,7 +19,7 @@ namespace Siccity.GLTFUtility {
 
         public ImportSettings(Material _overrideMaterial)
         {
-            overrideMaterial = _overrideMaterial;
+            shaderOverrides = new ShaderSettings(_overrideMaterial);
         }
 
         public bool materials = true;
