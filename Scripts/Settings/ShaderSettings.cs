@@ -5,6 +5,15 @@ namespace Siccity.GLTFUtility {
 	/// <summary> Defines which shaders to use in the gltf import process </summary>
 	[Serializable]
 	public class ShaderSettings {
+
+		public ShaderSettings(Shader defaultShader)
+        {
+            metallic = defaultShader;
+            metallicBlend = defaultShader;
+            specular = defaultShader;
+            specularBlend = defaultShader;
+        }
+
 		[SerializeField] private Shader metallic;
 		public Shader Metallic { get { return metallic != null ? metallic : (Shader.Find("GLTFUtility/Standard (Metallic)")??Shader.Find("Standard")); } }
 
@@ -19,10 +28,7 @@ namespace Siccity.GLTFUtility {
 
 		/// <summary> Caches default shaders so that async import won't try to search for them while on a separate thread </summary>
 		public void CacheDefaultShaders() {
-			metallic = Metallic;
-			metallicBlend = MetallicBlend;
-			specular = Specular;
-			specularBlend = SpecularBlend;
+
 		}
 	}
 }
