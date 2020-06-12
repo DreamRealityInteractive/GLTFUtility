@@ -151,8 +151,9 @@ namespace Siccity.GLTFUtility {
 									blendShape.pos = GetMorphWeights(primitive.targets[k].POSITION, submeshVertexStart[i], finalVertCount, accessors);
 									blendShape.norm = GetMorphWeights(primitive.targets[k].NORMAL, submeshVertexStart[i], finalVertCount, accessors);
 									blendShape.tan = GetMorphWeights(primitive.targets[k].TANGENT, submeshVertexStart[i], finalVertCount, accessors);
-									if (hasTargetNames) blendShape.name = gltfMesh.extras.targetNames[k];
-									else blendShape.name = "morph-" + blendShapes.Count;
+                                    //if (hasTargetNames) blendShape.name = gltfMesh.extras.targetNames[k];
+                                    //else
+                                    blendShape.name = "morph-" + blendShapes.Count;
 									blendShapes.Add(blendShape);
 								}
 							}
