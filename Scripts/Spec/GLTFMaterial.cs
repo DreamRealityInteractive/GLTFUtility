@@ -157,9 +157,9 @@ namespace Siccity.GLTFUtility {
 						} else {
 							IEnumerator en = textures[baseColorTexture.index].GetTextureCached(false, tex => {
 								if (tex != null) {
-									mat.SetTexture("_MainTex", tex);
+									mat.SetTexture("_BaseMap", tex);
 									if (baseColorTexture.extensions != null) {
-										baseColorTexture.extensions.Apply(baseColorTexture, mat, "_MainTex");
+										baseColorTexture.extensions.Apply(baseColorTexture, mat, "_BaseMap");
 									}
 								}
 							});
@@ -232,9 +232,9 @@ namespace Siccity.GLTFUtility {
 						} else {
 							IEnumerator en = textures[diffuseTexture.index].GetTextureCached(false, tex => {
 								if (tex != null) {
-									mat.SetTexture("_MainTex", tex);
+									mat.SetTexture("_BaseMap", tex);
 									if (diffuseTexture.extensions != null) {
-										diffuseTexture.extensions.Apply(diffuseTexture, mat, "_MainTex");
+										diffuseTexture.extensions.Apply(diffuseTexture, mat, "_BaseMap");
 									}
 								}
 							});
